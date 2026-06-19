@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jramesriljehp.github.io/mainportal-hth-com-cn/sitemap.xml

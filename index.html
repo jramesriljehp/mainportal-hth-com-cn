@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 - 找到它，认识它</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fce6d0 0%, #f7d5b8 50%, #f0c4a0 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            color: #3b2b1e;
+        }
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 16px 48px 16px;
+            padding: 3rem 2.8rem;
+            box-shadow: 0 20px 40px rgba(120, 70, 30, 0.12), 0 8px 20px rgba(160, 100, 60, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 28px 56px rgba(100, 55, 20, 0.14);
+        }
+
+        .hero-line {
+            font-size: 1.8rem;
+            font-weight: 350;
+            letter-spacing: 1.5px;
+            color: #7c5a3e;
+            border-left: 4px solid #dba47b;
+            padding-left: 1.2rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.4;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #4e3826;
+            margin-bottom: 2rem;
+        }
+        .intro-text a {
+            color: #b87333;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .intro-text a:hover {
+            border-bottom-color: #b87333;
+            color: #8b5a2b;
+        }
+
+        .feature-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 2rem;
+            margin-bottom: 1.2rem;
+        }
+        .feature-head span {
+            font-size: 1.6rem;
+        }
+        .feature-head p {
+            font-size: 1.2rem;
+            font-weight: 450;
+            letter-spacing: 1px;
+            color: #5d4030;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+        .feature-item {
+            background: #faf2e9;
+            border-radius: 28px 8px 28px 8px;
+            padding: 1rem 1.4rem;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid #f2ddd0;
+        }
+        .feature-item:hover {
+            background: #f6e5d6;
+            transform: scale(1.01);
+        }
+        .feature-item strong {
+            display: block;
+            font-weight: 600;
+            color: #7b5235;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+        .feature-item span {
+            font-size: 0.92rem;
+            color: #5b4232;
+            line-height: 1.5;
+        }
+
+        .scene-note {
+            background: #fcf3ea;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px 4px 20px 4px;
+            margin: 2rem 0 1.8rem;
+            border-left: 6px solid #c99164;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #4b3624;
+        }
+
+        .gentle-end {
+            margin-top: 2.4rem;
+            padding-top: 1.2rem;
+            border-top: 2px dashed #e3cbb8;
+            font-style: normal;
+            font-size: 1rem;
+            color: #604b38;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem 0.5rem;
+        }
+        .gentle-end a {
+            background: #e9cfbb;
+            color: #3f2d1e;
+            padding: 0.3rem 1.2rem 0.4rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: background 0.2s, color 0.2s;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            border: 1px solid #dbb59a;
+        }
+        .gentle-end a:hover {
+            background: #d4af8f;
+            color: #2a1d13;
+            border-color: #b28a6b;
+        }
+
+        .faq-mini {
+            margin-top: 2.2rem;
+            padding: 0.2rem 0;
+        }
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #eddacb;
+            padding-bottom: 0.6rem;
+        }
+        .faq-mini summary {
+            font-weight: 500;
+            color: #6d4d35;
+            cursor: pointer;
+            font-size: 0.98rem;
+            padding: 0.2rem 0;
+            list-style: none;
+        }
+        .faq-mini summary::before {
+            content: "▸ ";
+            color: #b87333;
+        }
+        .faq-mini details[open] summary::before {
+            content: "▾ ";
+        }
+        .faq-mini p {
+            margin-left: 1.2rem;
+            color: #4f3929;
+            font-size: 0.93rem;
+            line-height: 1.5;
+            padding: 0.3rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .card {
+                padding: 2rem 1.4rem;
+                border-radius: 28px 8px 28px 8px;
+            }
+            .hero-line {
+                font-size: 1.45rem;
+                padding-left: 0.9rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .gentle-end {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.7rem;
+            }
+            .intro-text {
+                font-size: 0.98rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .card {
+                padding: 1.6rem 1rem;
+            }
+            .hero-line {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+
+    <div class="hero-line">
+        一眼认出它，一个名字足够。
+    </div>
+
+    <div class="intro-text">
+        当你打开一个网站，总希望几秒内就能判断它是否对你有用。<br>
+        有时候清晰比什么都重要。<strong>华体会</strong> 这个名字，本身就带着一点辨识度，不绕弯子。它指向一个线上平台，你可以通过 <a href="https://mainportal-hth.com.cn">华体会</a> 直接了解它的全貌。没有多余的解释，名字就是入口。
+    </div>
+
+    <div class="feature-head">
+        <span>✦</span>
+        <p>简练的特点</p>
+    </div>
+    <div class="feature-grid">
+        <div class="feature-item">
+            <strong>命名即方向</strong>
+            <span>一个名字对应一个站点，减少记忆负担。华体会三个字，念一遍就能记住。</span>
+        </div>
+        <div class="feature-item">
+            <strong>直达无干扰</strong>
+            <span>主页就是门户，没有层层嵌套的迷宫。你想找的，直接呈现。</span>
+        </div>
+        <div class="feature-item">
+            <strong>视觉平实</strong>
+            <span>不靠夸张弹窗吸引注意，内容本身才是主角。干净界面，阅读优先。</span>
+        </div>
+        <div class="feature-item">
+            <strong>跨设备适应</strong>
+            <span>无论在电脑还是手机上，页面布局都会自动调整，阅读体验保持一致。</span>
+        </div>
+    </div>
+
+    <div class="scene-note">
+        🧭 适合这样的场景：你收到一个链接，想快速确认网站是否正规、是否有你想要的信息。打开后一目了然，不用在满屏广告里寻找真正的入口。<br>
+        华体会 这个名称对应的正是它的主站点，没有歧义。
+    </div>
+
+    <div class="faq-mini">
+        <details>
+            <summary>“华体会”是什么意思？</summary>
+            <p>它是一个在线平台的名称，对应唯一的门户网站。你可以通过 <a href="https://mainportal-hth.com.cn" style="color:#b87333;text-decoration:underline;">华体会</a> 进入该站点。</p>
+        </details>
+        <details>
+            <summary>这个页面是官方网站吗？</summary>
+            <p>这是一个介绍性质的页面，帮助你了解华体会的用途，并提供了链接直达主站点。主站地址是 <code>https://mainportal-hth.com.cn</code>。</p>
+        </details>
+        <details>
+            <summary>如何快速访问主站？</summary>
+            <p>页面中已嵌入指向 <a href="https://mainportal-hth.com.cn" style="color:#b87333;text-decoration:underline;">华体会</a> 的链接，点击即可跳转。</p>
+        </details>
+    </div>
+
+    <div class="gentle-end">
+        <span>一个名字，一个地址，</span>
+        <a href="https://mainportal-hth.com.cn">华体会</a>
+        <span>就在这里。</span>
+    </div>
+
+</div>
+</body>
+</html>
