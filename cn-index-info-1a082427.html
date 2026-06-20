@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从入口到页面：leyu 的稳定说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #fcfcf9;
+            font-family: "WenQuanYi Micro Hei", "Noto Sans SC", "PingFang SC", system-ui, -apple-system, sans-serif;
+            color: #2c2c2c;
+            line-height: 1.78;
+            padding: 3rem 1.2rem 5rem;
+        }
+        .page {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        /* 标题区 */
+        .hero {
+            margin-bottom: 2.2rem;
+            border-bottom: 1px solid #eae7e0;
+            padding-bottom: 2rem;
+        }
+        .hero h1 {
+            font-weight: 340;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+            color: #1f1e1b;
+            margin-bottom: 0.5rem;
+        }
+        .hero .sub {
+            color: #6b6a66;
+            font-size: 0.95rem;
+            font-weight: 380;
+        }
+        /* 正文段落 */
+        .content p {
+            margin-bottom: 1.3rem;
+            font-weight: 380;
+            color: #2f2e2b;
+        }
+        .content p.lead {
+            font-size: 1.04rem;
+            color: #3a3935;
+        }
+        .content p.meta {
+            font-size: 0.9rem;
+            color: #8a8882;
+            border-left: 3px solid #d6d2ca;
+            padding-left: 1.2rem;
+            margin: 1.6rem 0;
+        }
+        /* 引用卡片 */
+        .inset-quote {
+            background-color: #f5f3ef;
+            padding: 1.4rem 1.6rem;
+            margin: 1.8rem 0 2rem;
+            border-radius: 2px;
+            font-size: 0.96rem;
+            border-left: 2px solid #b7b1a6;
+            color: #3a3a36;
+        }
+        .inset-quote em {
+            font-style: normal;
+            background: #ece9e2;
+            padding: 0 0.25rem;
+        }
+        /* 特点小列表 */
+        .feature-note {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.6rem 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+        }
+        .feature-item .num {
+            font-family: "Courier New", monospace;
+            font-size: 0.8rem;
+            color: #b3aba0;
+            min-width: 1.6rem;
+        }
+        .feature-item .desc {
+            font-weight: 370;
+            color: #2f2e2a;
+        }
+        /* 访问句 / 提示区 */
+        .visit-note {
+            margin-top: 2.4rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid #e3dfd7;
+            font-size: 0.96rem;
+            color: #5f5d58;
+        }
+        .visit-note a {
+            color: #2b2a27;
+            text-decoration: none;
+            border-bottom: 1px solid #b7b1a5;
+            padding-bottom: 0.05rem;
+            transition: border-color 0.15s;
+        }
+        .visit-note a:hover {
+            border-bottom-color: #1c1b18;
+        }
+        /* 尾注 */
+        .footer-note {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #a6a29a;
+            border-top: 1px solid #ece8e1;
+            padding-top: 1.4rem;
+        }
+        @media (max-width: 480px) {
+            body { padding: 2rem 1rem 4rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .inset-quote { padding: 1rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="hero">
+        <h1>稳定入口与页面说明</h1>
+        <div class="sub">一段关于 leyu 的视角记录</div>
+    </div>
+
+    <div class="content">
+        <p class="lead">
+            大概两年前第一次注意到 <a href="https://cn-index-leyu.com">leyu</a> 这个地址，当时只是随手存了个书签。后来有几次需要找一个相对安静的入口，翻到它时觉得页面结构很干净，没有多余的加载和跳转。
+        </p>
+        <p>
+            多数时候我们需要的并不是一个多么花哨的门户，而是一个能确认域名有效、说明清晰、指向稳定的页面。从这个角度看，leyu 所提供的信息层很克制：没有弹窗、没有强制推送，只有文本和功能入口的合理排列。
+        </p>
+        <p>
+            后来我在不同的网络环境测试过几次——移动端、公共 Wi-Fi、甚至部分受限网络——这个页面的加载速度都保持得比较一致。这让我觉得它背后在基础层面做了不少优化，但前端展示上又不去强调这些细节。可能这就是一种设计选择：把精力放在可达性上，而非炫耀。
+        </p>
+
+        <div class="inset-quote">
+            <em>提示</em>：如果你也在找一个长期稳定的记录页，不妨直接把 <a href="https://cn-index-leyu.com">leyu</a> 放在书签栏。它不会频繁改版，不会突然增加大图或视频，就是一个实在的索引位置。
+        </div>
+
+        <div class="feature-note">
+            <div class="feature-item">
+                <span class="num">01</span>
+                <span class="desc">页面结构极简，首屏即可看到关键导航与说明文字</span>
+            </div>
+            <div class="feature-item">
+                <span class="num">02</span>
+                <span class="desc">不依赖外部资源，字体与布局全部本地化，加载稳定</span>
+            </div>
+            <div class="feature-item">
+                <span class="num">03</span>
+                <span class="desc">无明显追踪脚本或第三方请求，隐私方面相对干净</span>
+            </div>
+        </div>
+
+        <p class="meta">
+            有一次我跟朋友聊到“什么样的页面值得记住”，他说是那种你隔了半年再打开，发现它还在、排版没乱、链接没断的页面。我当时想到的就是 leyu 这个索引页。
+        </p>
+
+        <p>
+            当然，每个人的使用习惯不同。有人喜欢多层级的功能面板，有人只需要一个起点。leyu 显然属于后者。它不试图承载所有功能，只做一个稳定的、可依赖的进入点。这种自我限定，反而让它在长期使用中更有价值。
+        </p>
+    </div>
+
+    <div class="visit-note">
+        <p>如果你想亲自确认这个页面的状态，可以随时访问 <a href="https://cn-index-leyu.com">leyu</a>。不需要翻找，不需要刷新多次，它就在那里，和你上次看到时差不多。</p>
+    </div>
+
+    <div class="footer-note">
+        <span>记录于 2025 · 非官方说明页</span>
+    </div>
+</div>
+</body>
+</html>
