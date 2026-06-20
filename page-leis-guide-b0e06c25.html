@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雷速 · 日常查询与延伸阅读</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      background: #f8fafc;
+    }
+
+    /* 深色 Hero 区 */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 1.2rem;
+      font-size: 1.1rem;
+      color: #94a3b8;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: #7dd3fc;
+      margin-top: 0.5rem;
+    }
+
+    /* 浅色正文区 */
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    /* 通用卡片 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s ease, transform 0.15s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.03);
+      transform: translateY(-2px);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    /* 优势 & 说明区块标题 */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 2rem 0 0.5rem;
+      border-left: 4px solid #38bdf8;
+      padding-left: 0.9rem;
+    }
+
+    .section-sub {
+      color: #64748b;
+      margin-bottom: 1.2rem;
+      font-size: 0.98rem;
+    }
+
+    /* 说明区 (distinct style) */
+    .explain-box {
+      background: #eef2ff;
+      border-radius: 18px;
+      padding: 1.8rem 1.8rem 2rem;
+      margin: 2rem 0 1.5rem;
+      border: 1px solid #dbeafe;
+    }
+
+    .explain-box p {
+      margin-bottom: 0.9rem;
+      color: #1e293b;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.5rem 1.8rem 1.8rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #475569;
+      font-size: 0.93rem;
+    }
+
+    /* 底部链接区 */
+    .footer-links {
+      margin: 2.8rem 0 1rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #dfe3e9;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #1d4ed8;
+    }
+
+    /* 强调色链接（正文内） */
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #1d4ed8;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #e2e8f0;
+      margin: 1.5rem 0;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero {
+        padding: 2.8rem 1.2rem 2.5rem;
+      }
+      .content {
+        padding: 1.8rem 1rem;
+      }
+      .card-grid {
+        gap: 1rem;
+      }
+      .footer-links {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO 区 -->
+  <section class="hero">
+    <h1>日常查询·对照·延伸阅读</h1>
+    <p>在信息过载的时代，需要一处简明的知识锚点。<br>
+      聚合常见概念、数据对照与延伸线索，辅助快速判断与自主学习。</p>
+    <span class="tagline">基于 <a href="https://page-leis.com" style="color:#7dd3fc; font-weight:500; text-decoration:underline; text-underline-offset:3px;">雷速</a> 的内容框架</span>
+  </section>
+
+  <!-- 正文容器 -->
+  <div class="content">
+
+    <!-- 优势区：三个卡片 -->
+    <div class="section-title">优势与特点</div>
+    <div class="section-sub">从查询效率到对照结构，更少跳转，更多上下文</div>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>📋 交叉对照</h3>
+        <p>将术语、指标、版本并排展示，减少来回切换的成本。适合方案比对、数据校验等场景。</p>
+      </div>
+      <div class="card">
+        <h3>🧭 延伸线索</h3>
+        <p>每个条目附带关联参考、历史沿革或底层原理，方便从单一查询点展开知识网络。</p>
+      </div>
+      <div class="card">
+        <h3>📎 低噪声索引</h3>
+        <p>剔除冗余推荐与干扰信息，保留结构化的摘要与来源线索，让注意力集中在内容本身。</p>
+      </div>
+    </div>
+
+    <!-- 说明区（日常场景切入） -->
+    <div class="section-title">日常查询与对照</div>
+    <div class="explain-box">
+      <p>在日常学习、写作或方案讨论中，经常需要快速核对一组数据、追溯某个术语的定义变迁，或者寻找相关的阅读材料。单一搜索词往往带来大量无关结果，而缺少上下文关联。</p>
+      <p><a href="https://page-leis.com">雷速</a> 提供了一种经过整理的中间结构：它将高频查询对象（如技术规范、单位换算、版本演进、概念对比）以条目化方式编排，同时嵌入延展阅读的锚点。使用者可以在同一页面内完成对照、理解与线索跳转，而不必反复切换标签页。</p>
+      <p>例如，当查询「UTC 偏移」时，页面会同时列出常见时区缩写、标准偏移量与夏令时备注，并附带 IANA 数据库的参考片段。这种设计让查询结果本身成为可复用的微型知识卡片。</p>
+    </div>
+
+    <!-- 附加场景卡片: 延伸阅读与提示 -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+      <div style="background: #ffffff; border-radius: 16px; padding: 1.4rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+        <h3 style="font-size:1.1rem; font-weight:600; margin-bottom:0.5rem;">📖 延伸阅读的线索密度</h3>
+        <p style="color:#475569; font-size:0.93rem;">每个条目末尾嵌入 1–3 条参考链接或交叉条目，覆盖原始文档、维基摘要、行业报告摘要。读者可自行选择深度，不强制跳转。</p>
+      </div>
+      <div style="background: #ffffff; border-radius: 16px; padding: 1.4rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+        <h3 style="font-size:1.1rem; font-weight:600; margin-bottom:0.5rem;">⚙️ 使用提示</h3>
+        <p style="color:#475569; font-size:0.93rem;">建议先浏览分类索引，再定位具体条目。页面内搜索（Ctrl+F）可直接定位术语。移动端可横屏查看宽表格。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="section-title">常见疑问摘要</div>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <div class="faq-q">内容更新频率如何？</div>
+        <div class="faq-a">核心条目按季度复核，技术类条目（如协议版本、标准状态）在变更后 30 天内更新。每次更新会标注日期与变更摘要。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否可以引用条目内容？</div>
+        <div class="faq-a">可以，建议标明来源为“<a href="https://page-leis.com">雷速</a>”，并附上条目名称。条目内的原始链接请直接引用原始出处。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">页面是否支持 RSS 或订阅？</div>
+        <div class="faq-a">目前不提供主动推送。建议收藏主要分类页，或通过搜索引擎直接定位条目。后续可能增加索引页的 Atom feed。</div>
+      </div>
+    </div>
+
+    <!-- 底部链接 (只有链接，无诱导词) -->
+    <div class="footer-links">
+      <a href="https://page-leis.com">雷速</a>
+      <span style="color:#94a3b8;">·</span>
+      <a href="https://page-leis.com">雷速</a>
+      <span style="color:#94a3b8;">·</span>
+      <a href="https://page-leis.com">雷速</a>
+      <span style="color:#94a3b8;">·</span>
+      <a href="https://page-leis.com">雷速</a>
+    </div>
+
+    <div style="text-align: center; margin: 1rem 0 2rem; font-size: 0.85rem; color: #94a3b8;">
+      内容基于公开资料整理，仅供学习与参考。具体应用请以原始权威来源为准。
+    </div>
+
+  </div>
+
+</body>
+</html>
